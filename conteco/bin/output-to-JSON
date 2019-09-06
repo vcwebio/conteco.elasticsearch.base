@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# the default is to return the message as is
+# each container type instance can implement its own if required
+stream=$1
+INPUT=$2
+
+if [[ "$INPUT" != "{"* ]] ; then
+
+	if [[ "$INPUT" == "["* ]] ; then
+
+		LEVEL=${INPUT:27:5}
+		case $LEVEL in
+		
+			"ERROR"*)
+				LEVEL="ERROR"
+				;;
+			"WARN"*)
+				LEVEL="WARNING"
+				;;
+			*)
+				LEVEL="INFO"
+				;;
+		esac
+		MESSAGE=$(echo ${INPUT:33} | jq -aR .)
+		printf '{ "source": "logger", "level": "%s", "message":%s }' "$LEVEL" "$MESSAGE"
+
+	else
+
+		LEVEL="INFO"
+		MESSAGE=$(echo $INPUT | jq -aR .)
+		printf '{ "source": "logger", "level": "%s", "message":%s }' "$LEVEL" "$MESSAGE"
+	
+	fi
+else 
+
+	printf "%s" "$INPUT"
+
+fi
+
+# [2019-06-29T18:29:49,781][INFO ][o.e.m.j.JvmGcMonitorService] [YHmozZe] [gc][young][1065][292] duration [788ms], collections [1]/[1.2s], total [788ms]/[1.4m], memory [579.9mb]->[360.6mb]/[990.7mb], all_pools {[young] [218.3mb]->[804.4kb]/[266.2mb]}{[survivor] [14.6mb]->[8mb]/[33.2mb]}{[old] [351.3mb]->[351.8mb]/[691.2mb]}

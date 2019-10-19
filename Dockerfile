@@ -1,6 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
-FROM $CONTECO_REALM/$CONTECO_ECOSYSTEM.image.wrapper AS wrapper
-FROM $CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_BASE AS base
+FROM $CONTECO_REGISTRY$CONTECO_REALM/$CONTECO_ECOSYSTEM.image.wrapper AS wrapper
+FROM $CONTECO_REGISTRY$CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_BASE AS base
 ##### END image.base/Dockerfile/image-header #####
 
 ##### BEGIN image.base/Dockerfile/conteco #####
@@ -16,7 +16,7 @@ COPY ./ /conteco/repo/
 
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/usr/local/bin/docker-entrypoint.sh"
-COPY ./conteco/elasticsearch/base/usr/share/elasticsearch/config/* /usr/share/elasticsearch/config/
+COPY ./conteco/assets/elasticsearch/base/usr/share/elasticsearch/config/* /usr/share/elasticsearch/config/
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####

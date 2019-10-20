@@ -2,24 +2,15 @@
 version: '3'
 services:
 
-  ${CONTECO_DC_SERVICE_NAME}:
-    image: ${CONTECO_DC_IMAGE_NAME}
-    environment:
-      - cluster.name=${CONTECO_DC_ENV_CLUSTERNAME}
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms${CONTECO_DC_DEPLOY_MEMORY_RESERVATION} -Xmx${CONTECO_DC_DEPLOY_MEMORY_RESERVATION}"
-      - discovery.type=single-node     
-    volumes: [${CONTECO_DC_VOLUMES}]
-    ports: [${CONTECO_DC_PORTS}]
-    networks: [${CONTECO_DC_NETWORKS}]
-    deploy:
-      mode: ${CONTECO_DC_DEPLOY_MODE}
-      resources:
-        limits:
-          memory: ${CONTECO_DC_DEPLOY_MEMORY_LIMIT}
-        reservations:
-          memory: ${CONTECO_DC_DEPLOY_MEMORY_RESERVATION}
+  elasticsearch:
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.elasticsearch.base:7.1.1
+    environment: ['cluster.name=elasticsearch', 'bootstrap.memory_lock=true', ES_JAVA_OPTS=-Xms${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xmx${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}, 'discovery.type=single-node'] 
+    command: [${CONTECO_DC_ELASTICSEARCH_COMMAND}]
+    volumes: [${CONTECO_DC_ELASTICSEARCH_VOLUMES}]
+    ports: [${CONTECO_DC_ELASTICSEARCH_PORTS}]
+    networks: [${CONTECO_DC_ELASTICSEARCH_NETWORKS}]
+    deploy: {${CONTECO_DC_ELASTICSEARCH_DEPLOY}}
 
 networks:
-  ${CONTECO_DC_NETWORKS}:
+  ${CONTECO_DC_ELASTICSEARCH_NETWORKS}:
     external: true

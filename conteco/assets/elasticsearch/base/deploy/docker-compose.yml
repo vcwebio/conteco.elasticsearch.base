@@ -2,6 +2,7 @@
 version: '3'
 services:
 
+# START SERVICE elasticsearch.base
   elasticsearch:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.elasticsearch.base:7.1.1
     environment: ['cluster.name=elasticsearch', 'bootstrap.memory_lock=true', ES_JAVA_OPTS=-Xms${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xmx${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}, 'discovery.type=single-node'] 
@@ -10,6 +11,7 @@ services:
     ports: [${CONTECO_DC_ELASTICSEARCH_PORTS}]
     networks: [${CONTECO_DC_ELASTICSEARCH_NETWORKS}]
     deploy: {${CONTECO_DC_ELASTICSEARCH_DEPLOY}}
+# END SERVICE elasticsearch.base
 
 networks:
   ${CONTECO_DC_ELASTICSEARCH_NETWORKS}:

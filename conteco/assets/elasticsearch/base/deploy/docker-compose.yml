@@ -10,7 +10,16 @@ services:
     volumes: ['${CONTECO_DC_ELASTICSEARCH_VOLUMES_NAME}:/usr/share/elasticsearch/data']
     ports: [${CONTECO_DC_ELASTICSEARCH_PORTS}]
     networks: [${CONTECO_DC_ELASTICSEARCH_NETWORKS}]
-    deploy: {${CONTECO_DC_ELASTICSEARCH_DEPLOY}}
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources: 
+        limits: 
+          cpus: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_LIMITS_CPUS}'
+          memory: ${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_LIMITS_MEMORY}
+        reservations:
+          cpus: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
+          memory: ${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}
 # END SERVICE elasticsearch.base
 
 volumes: {${CONTECO_DC_GLOBAL_VOLUMES}}

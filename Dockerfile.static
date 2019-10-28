@@ -16,7 +16,7 @@ COPY ./ /conteco/repo/
 
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/usr/local/bin/docker-entrypoint.sh"
-COPY ./conteco/assets/elasticsearch/base/usr/share/elasticsearch/config/* /usr/share/elasticsearch/config/
+COPY ./conteco/configs/base/usr/share/elasticsearch/config/* /usr/share/elasticsearch/config/
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####

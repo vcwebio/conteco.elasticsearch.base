@@ -5,20 +5,21 @@ services:
 # START SERVICE elasticsearch.base
   elasticsearch:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.elasticsearch.base:7.1.1
-    environment: ['cluster.name=elasticsearch', 'bootstrap.memory_lock=true', ES_JAVA_OPTS=-Xms${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xmx${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}, 'discovery.type=single-node'] 
+    environment: ['cluster.name=elasticsearch', 'bootstrap.memory_lock=true', ES_JAVA_OPTS=-Xms${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xmx${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}, 'discovery.type=single-node']
     command: []
     volumes: ['${CONTECO_DC_ELASTICSEARCH_VOLUMES_NAME}:/usr/share/elasticsearch/data']
     ports: [${CONTECO_DC_ELASTICSEARCH_PORTS}]
     networks: [${CONTECO_DC_ELASTICSEARCH_NETWORKS}]
     deploy:
       mode: replicated
-      resources: 
-        limits: 
+      resources:
+        limits:
           cpus: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_LIMITS_CPUS}'
           memory: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
           cpus: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+      labels: [${CONTECO_DC_ELASTICSEARCH_DEPLOY_LABELS}]
 # END SERVICE elasticsearch.base
 
 volumes: {${CONTECO_DC_GLOBAL_VOLUMES}}

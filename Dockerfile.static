@@ -35,7 +35,7 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.tag="7.1.1" \
       io.vcweb.base="external.elasticsearch:7.1.1" \
       io.vcweb.build="image-base" \
-      io.vcweb.label="Conteco elasticsearch base" \
-      io.vcweb.description="The ElasticSearch base image." \
+      io.vcweb.label="elasticsearch.base - ContEco" \
+      io.vcweb.description="Official Elasticsearch base image with minor configuration change." \
       io.vcweb.docker.cmd.help="docker run vcwebio/conteco.elasticsearch.base --help" 
 ##### END image.base/Dockerfile/env-labels-footer #####

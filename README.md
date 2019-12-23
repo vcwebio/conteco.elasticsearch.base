@@ -1,13 +1,17 @@
-# The Conteco elasticsearch base
+# `elasticsearch.base` - ContEco
 
-The ElasticSearch base image. 
+Official Elasticsearch base image with minor configuration change.  
+See `conteco.docs.overview` for more information on the ContEco ecosystem.
 
-## Modifications
+## Configuration
 
-None.
+The following configuration change was made in `jvm.options`:
+```bash
+# default memory allocation reduced to 512m
+-Xms512m
+-Xmx512m
+```
 
 ## Tags
 
 * 7.1.1
-* 6.8.1  
-* 6.6.2  

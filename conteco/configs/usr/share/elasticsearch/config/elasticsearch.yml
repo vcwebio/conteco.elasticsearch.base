@@ -1,18 +1,2 @@
-# ======================== Elasticsearch Configuration =========================
-#
-# ---------------------------------- Cluster -----------------------------------
-#
-# Use a descriptive name for your cluster:
-#
-cluster.name: kafka-node
-#
-# ---------------------------------- Network -----------------------------------
-#
-# Set the bind address to a specific IP (IPv4 or IPv6):
-#
+cluster.name: "docker-cluster"
 network.host: 0.0.0.0
-#
-# --------------------------------- Discovery ----------------------------------
-#
-discovery.zen.minimum_master_nodes: 1
-#

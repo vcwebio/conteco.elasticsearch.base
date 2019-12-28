@@ -7,7 +7,7 @@ services:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.elasticsearch.base:7.1.1
     environment: ['cluster.name=elasticsearch', 'bootstrap.memory_lock=true', ES_JAVA_OPTS=-Xms${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xmx${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}, 'discovery.type=single-node']
     command: []
-    volumes: ['${CONTECO_TYPE}_elasticsearch_volume:/usr/share/elasticsearch/data']
+    volumes: [${CONTECO_DC_ELASTICSEARCH_VOLUMES}]
     ports: []
     networks: [${CONTECO_TYPE}_overlay]
     deploy:
@@ -19,8 +19,8 @@ services:
         reservations:
           cpus: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      labels: []
+      labels: [${CONTECO_DC_ELASTICSEARCH_DEPLOY_LABELS}]
 # END SERVICE elasticsearch.base
 
-volumes: {elasticsearch_elasticsearch_volume: { external: true }}
-networks: {elasticsearch_overlay: { external: true }}
+volumes: {${CONTECO_DC_GLOBAL_VOLUMES}}
+networks: {${CONTECO_TYPE}_overlay: { external: true }}

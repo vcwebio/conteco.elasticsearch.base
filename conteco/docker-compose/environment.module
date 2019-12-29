@@ -10,7 +10,7 @@ export CONTECO_DC_GLOBAL_VOLUME_LIST='elasticsearch_volume'
 # END OTHER VARIABLES
 
 # START VOLUMES VARIABLES
-export CONTECO_DC_ELASTICSEARCH_VOLUMES="'${DOLLAR}{CONTECO_TYPE}_elasticsearch_volume:/usr/share/elasticsearch/data'"
+export CONTECO_DC_ELASTICSEARCH_VOLUMES="'${CONTECO_TYPE}_elasticsearch_volume:/usr/share/elasticsearch/data'"
 export CONTECO_DC_GLOBAL_VOLUMES=""
 # END VOLUMES VARIABLES
 

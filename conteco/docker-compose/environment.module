@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # START CONFIGURATION
-export CONTECO_DC_GLOBAL_STACKS='elasticsearch.base'
-export CONTECO_DC_GLOBAL_STACKNAMES='elasticsearch'
-export CONTECO_DC_GLOBAL_VOLUME_LIST='elasticsearch_volume'
+export CONTECO_DC_GLOBAL_STACKS="elasticsearch.base"
+export CONTECO_DC_GLOBAL_STACKNAMES="elasticsearch"
+export CONTECO_DC_GLOBAL_BOOTSTACKS="elasticsearch"
+export CONTECO_DC_GLOBAL_RUNSTACKS=""
+export CONTECO_DC_GLOBAL_VOLUME_LIST="elasticsearch_volume"
 # END CONFIGURATION
 
 # START OTHER VARIABLES

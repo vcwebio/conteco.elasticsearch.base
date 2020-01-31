@@ -4,7 +4,7 @@ services:
 
 # START SERVICE elasticsearch.base
   elasticsearch:
-    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/conteco.elasticsearch.base:7.1.1
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.elasticsearch.base:7.1.1
     environment: ['cluster.name=elasticsearch', 'bootstrap.memory_lock=true', ES_JAVA_OPTS=-Xms${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xmx${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}, 'discovery.type=single-node']
     command: []
     volumes: ['${CONTECO_TYPE}_conteco_dc_elasticsearch_volume:/usr/share/elasticsearch/data']

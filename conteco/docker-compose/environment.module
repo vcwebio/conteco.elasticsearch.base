@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # START CONFIGURATION
-export CONTECO_DC_GLOBAL_STACKS="elasticsearch.base"
+export CONTECO_DC_GLOBAL_PACKAGE_CONTECO="elasticsearch.base"
 export CONTECO_DC_GLOBAL_STACKNAMES="elasticsearch"
 export CONTECO_DC_GLOBAL_BOOTSTACKS="elasticsearch"
 export CONTECO_DC_GLOBAL_RUNSTACKS=""

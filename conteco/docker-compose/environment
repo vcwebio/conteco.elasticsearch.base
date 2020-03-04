@@ -20,11 +20,11 @@ ES_JAVA_OPTS=-Xms${DOLLAR}{CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATION
 'discovery.type=single-node'"
 export CONTECO_DC_ELASTICSEARCH_COMMAND=
 export CONTECO_DC_ELASTICSEARCH_PORTS=
-export CONTECO_DC_ELASTICSEARCH_VOLUMES="'${DOLLAR}{CONTECO_TYPE}_conteco_dc_elasticsearch_volume:/usr/share/elasticsearch/data'"
-export CONTECO_DC_ELASTICSEARCH_NETWORKS="${DOLLAR}{CONTECO_TYPE}_overlay"
+export CONTECO_DC_ELASTICSEARCH_VOLUMES="'${DOLLAR}{CONTECO_STACKPREFIX}_elasticsearch_volume:/usr/share/elasticsearch/data'"
+export CONTECO_DC_ELASTICSEARCH_NETWORKS="${DOLLAR}{CONTECO_NETWORKLOCAL}_overlay"
 export CONTECO_DC_ELASTICSEARCH_DEPLOY_MODE="replicated"
-export CONTECO_DC_GLOBAL_VOLUMES="${DOLLAR}{CONTECO_TYPE}_conteco_dc_elasticsearch_volume: { external: true }"
-export CONTECO_DC_GLOBAL_NETWORKS="${DOLLAR}{CONTECO_TYPE}_overlay: { external: true }"
+export CONTECO_DC_GLOBAL_VOLUMES="${DOLLAR}{CONTECO_STACKPREFIX}_elasticsearch_volume: { external: true }"
+export CONTECO_DC_GLOBAL_NETWORKS="${DOLLAR}{CONTECO_NETWORKLOCAL}_overlay: { external: true }"
 # END GLOBAL SETTINGS
 
 # START SETTINGS elasticsearch.base

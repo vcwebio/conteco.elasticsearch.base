@@ -2,6 +2,7 @@
 
 # START CONFIGURATION
 export CONTECO_DC_GLOBAL_PACKAGE_CONTECO="elasticsearch.base"
+export CONTECO_DC_GLOBAL_PACKAGE_TAG="7.1.1"
 export CONTECO_DC_GLOBAL_STACKNAMES="conteco_dc_elasticsearch"
 export CONTECO_DC_GLOBAL_BOOTSTACKS="conteco_dc_elasticsearch"
 export CONTECO_DC_GLOBAL_RUNSTACKS=""

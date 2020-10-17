@@ -14,5 +14,5 @@ The following configuration change was made in `jvm.options`:
 
 ## Tags
 
-* 7.8.0 (latest)  
+* 7.9.2 (latest)  
 * 7.1.1

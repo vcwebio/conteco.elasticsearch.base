@@ -4,11 +4,11 @@ services:
 
 # START SERVICE elasticsearch.base
   elasticsearch:
-    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.elasticsearch.base:7.8.0
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.elasticsearch.base:7.9.2
     environment: ['cluster.name=elasticsearch', 'bootstrap.memory_lock=true', ES_JAVA_OPTS=-Xms${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xmx${CONTECO_DC_ELASTICSEARCH_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}, 'discovery.type=single-node']
     command: []
     volumes: ['${CONTECO_STACKPREFIX}_elasticsearch_volume:/usr/share/elasticsearch/data']
-    ports: []
+    ports: [9200:9200]
     networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated

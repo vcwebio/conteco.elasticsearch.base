@@ -1,6 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
 FROM vcwebio/conteco.image.wrapper AS wrapper
-FROM vcwebio/conteco.external.elasticsearch:7.8.0 AS base
+FROM vcwebio/conteco.external.elasticsearch:7.9.2 AS base
 ##### END image.base/Dockerfile/image-header #####
 
 ##### BEGIN image.base/Dockerfile/conteco #####
@@ -16,7 +16,6 @@ COPY ./ /conteco/repo/
 
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/usr/local/bin/docker-entrypoint.sh"
-COPY ./conteco/configs/usr/share/elasticsearch/config/* /usr/share/elasticsearch/config/
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
@@ -24,18 +23,18 @@ ENV CONTECO_REALM="vcwebio" \
     CONTECO_ECOSYSTEM="conteco" \
     CONTECO_TYPE="elasticsearch" \
     CONTECO_NAME="base" \
-    CONTECO_TAG="7.8.0" \
-    CONTECO_BASE="external.elasticsearch:7.8.0" \
+    CONTECO_TAG="7.9.2" \
+    CONTECO_BASE="external.elasticsearch:7.9.2" \
     CONTECO_BUILD="image-base"
 LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.realm="vcwebio" \
       io.vcweb.ecosystem="conteco" \
       io.vcweb.type="elasticsearch" \
       io.vcweb.name="base" \
-      io.vcweb.tag="7.8.0" \
-      io.vcweb.base="external.elasticsearch:7.8.0" \
+      io.vcweb.tag="7.9.2" \
+      io.vcweb.base="external.elasticsearch:7.9.2" \
       io.vcweb.build="image-base" \
       io.vcweb.label="elasticsearch.base - ContEco" \
       io.vcweb.description="Official Elasticsearch base image with minor configuration change." \
-      io.vcweb.docker.cmd.help="docker run vcwebio/conteco.elasticsearch.base --help" 
+      io.vcweb.docker.cmd.help="docker run vcwebio/conteco.elasticsearch.base --help"
 ##### END image.base/Dockerfile/env-labels-footer #####

@@ -7,5 +7,6 @@ export CONTECO_TYPE="elasticsearch"
 export CONTECO_NAME="base"
 export CONTECO_TAG="7.9.2"
 
-export CONTECO_BASE="external.elasticsearch:7.9.2"
 export CONTECO_BUILD="image-base"
+
+export CONTECO_EXTERNAL_IMAGE_NAME="elasticsearch:7.9.2"
